@@ -4,4 +4,4 @@ from types import *
 
 
 if __name__ == '__main__':
-    example_cmp()
+    print filter(lambda x: x[:8] == 'example_', dir())

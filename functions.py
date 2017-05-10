@@ -4,6 +4,9 @@ trying to understand how they work.
 """
 
 
+import datetime
+
+
 def example_abs():
     """
     abs(number) function returns the absolute value of a number.
@@ -147,3 +150,181 @@ def example_cmp():
     print '-10, 20 = {}'.format(cmp(-10, 20))
     print '35, 35 = {}'.format(cmp(35, 35))
     print '"aBC", "Abcde" = {}'.format(cmp("aBC", "Abcde"))
+
+
+def example_compile():
+    """
+    compile(source, filename, mode) compile source into code or AST object.
+    If source wasn't from file pass recognizable value (eg. '<string>')
+    Mode specifies what kind of code must be compiles - 'exec' if source
+    consists of many statements, 'eval' if it's single expression or
+    'single' if it's single interactive statement
+    Examples: compile("max([6, 1, 9])", "<string>", "eval")
+    """
+    print '1 + 6 single = '
+    eval(compile("1 + 6", '<string>', 'single'))  # single prints result
+    print 'abs(-66.6) eval = {}'.format(
+        eval(compile('abs(-66.6)', '<string>', 'eval'))  # eval returns result
+    )
+    print 'max([2, -6, 10]) and cmp(10, 10) exec = '
+    eval(compile(
+        'print max([2, -6, 10])\nprint cmp(10, 10)', '<string>', 'exec'
+    ))  # exec neither return nor print result
+
+
+def example_complex():
+    """
+    complex(real, imag) return complex number with value real + imag*1j
+    or convert a string or number to complex number
+    Examples: complex(4), complex(-1, -4), complex("1+3j")
+    """
+    print '4 = {}'.format(complex(4))
+    print '"5+3j" = {}'.format(complex('5+3j'))
+    print '-6, -3 = {}'.format(complex(-6, -3))
+
+
+def example_delattr():
+    """
+    delattr(object, name) delete named attribute of object (if allowed)
+    Examples: delattr(my_person, "name"), delattr(my_number, "value")
+    """
+    class Car:
+        def __init__(self, value):
+            self.wheels = value
+
+    my_car = Car(4)
+    print 'my_car.wheels before = {}'.format(my_car.wheels)
+    delattr(my_car, 'wheels')
+    print 'my_car.wheels after: '
+    try:
+        print my_car.wheels
+    except AttributeError as e:
+        print 'AttributeError:', e.message
+
+
+def example_dict():
+    """
+    dict(**kwarg), dict(mapping, **kwarg), dict(iterable, **kwarg)
+    create a new dictionary
+    """
+    print 'one = 1, two = 2, three = 3  = {}'.format(
+        dict(one=1, two=2, three=3)
+    )
+    print 'zip(["four", "five", "six"], [4, 5, 6]) = {}'.format(
+        dict(zip(["four", "five", "six"], [4, 5, 6]))
+    )
+    print '[("seven", 7), ("eigth", 8), ("nine", 9)] = {}'.format(
+        dict([("seven", 7), ("eigth", 8), ("nine", 9)])
+    )
+
+
+def example_dir():
+    """
+    dir(object) or dir() return a list of valid attributes for object or
+    list of names in the current local scope if no arguments
+    Example: dir(), dir(list), dir(6), dir(Class)
+    """
+    local_string = "Hey!"
+    local_number = 55
+    print 'dir() = {}'.format(dir())
+    print 'dir(list) = {}'.format(dir(list)[-9:])
+
+
+def example_divmod():
+    """
+    divmod(a, b) return quotient and reminder from long division
+    Examples: divmod(10, 3), divmod(7.5, 1.5)
+    """
+    print '13, 4 = {}'.format(divmod(13, 4))
+    print '15.5, 1.25 = {}'.format(divmod(15.5, 1.25))
+
+
+def example_enumerate():
+    """
+    enumerate(sequence, start=0) return an enumerate object
+    Examples: enumerate(('zero', 'one')), enumerate(['five', 'six'], start=5)
+    """
+    print 'zero, one, two = {}'.format(list(enumerate(['zero', 'one', 'two'])))
+    print 'six, seven, start=6 = {}'.format(
+        list(enumerate(('six', 'seven', 'eight'), 6))
+    )
+
+
+def example_eval():
+    """
+    eval(expression[, globals[, locals]]) return result of expression
+    Example: eval('8/2'), eval('min(my_list)')
+    """
+    number = 4
+    print '8/2 = {}'.format(eval('8/2'))
+    print '16/number (local) = {}'.format(eval('16/local_number'))
+
+
+def example_execfile():
+    """
+    execfile(filename[, globals[, locals]]) parses file and evaluate it
+    as a sequence of Python statements, locals can be mapping object
+    Example: execfile('my_file.txt')
+    """
+    with open('test_file.txt', 'w') as f:
+        f.write('x = int(raw_input("podaj liczbe: "))\nprint x ** 2')
+    execfile('test_file.txt')
+
+
+def example_file():
+    """
+    file(name[, mode[, buffering]]) constructs file object, use open() 
+    instead and this in isinstance function
+    Examples: isinstance(my_file, file), file('test.txt', 'r')
+    """
+    with file('test.txt', 'w+') as f:
+        f.write('Hi!')
+        print 'isinstance(f, file) = {}'.format(isinstance(f, file))
+
+
+def example_filter():
+    """
+    filter(function, iterable) return list of those elements of iterable
+    for which function returns true, if iterable is string or tuple 
+    returns also that type, if function is None filter by 'is True'
+    Examples: filter(is_int, [1, 'yes', '5'), filter(None, ['', 2, 0, 'Hi'])
+    """
+    print 'x > 5, [1, 4, 9] = {}'.format(filter(lambda x: x > 5, [1, 4, 9]))
+    print 'None, [-8, "", 5, ()] = {}'.format(filter(None, [-8, "", 5, ()]))
+    print 'x > 96, "ThDVi|TFtQh8?e33Fre" = {}'.format(
+        filter(lambda x: ord(x) > 96, "ThDVi|TFtQh8?e33Fre")
+    )
+
+
+def example_float():
+    """
+    float(number) return floating point number from number or string
+    Examples: isinstance(0.1, float), float("2.44", float(-5)
+    """
+    print 'None = {}'.format(float())
+    print '"7.44" = {}'.format(float("7.44"))
+    print '5.5 isinstance = {}'.format(isinstance(5.5, float))
+
+
+def example_format():
+    """
+    format(value[, format_spec]) covert value to formated representation
+    """
+    print 'Complex {0} = {0.real} and {0.imag}'.format(complex(1, -5))
+    print 'List = [{0[0]}, {0[1]}, {0[2]}]'.format([6, 4, 2])
+    print '<-{:>30}->'.format('right align')
+    print '<-{:*^45}->'.format('center with asterisks')
+    print 'int: {0:d} bin: {0:b}, oct: {0:o}, hex: {0:x}, chr: {0:c}'.format(
+        0b1100101
+    )
+    print 'Division: {:.1%}'.format(87.0/97)
+    print '{:%d-%m-%Y %H:%M:%S}'.format(datetime.datetime.now())
+
+
+def example_frozenset():
+    """
+    frozenset(iterable) return frozenset object with elements from iterable
+    Examples: frozenset(set(1, 4, 9)), frozenset([9, 11, 22])
+    """
+    print '[1, 4, 9] = {}'.format(frozenset([1, 4, 9]))
+    print '[1, 4, 9] -> list = {}'.format(list(frozenset([1, 4, 9])))
