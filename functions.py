@@ -267,7 +267,7 @@ def example_execfile():
     Example: execfile('my_file.txt')
     """
     with open('test_file.txt', 'w') as f:
-        f.write('x = int(raw_input("podaj liczbe: "))\nprint x ** 2')
+        f.write('x = int(raw_input("Enter number: "))\nprint x ** 2')
     execfile('test_file.txt')
 
 
@@ -328,3 +328,125 @@ def example_frozenset():
     """
     print '[1, 4, 9] = {}'.format(frozenset([1, 4, 9]))
     print '[1, 4, 9] -> list = {}'.format(list(frozenset([1, 4, 9])))
+
+
+def example_getattr():
+    """
+    getattr(object, name[, default]) return value of given attribute,
+    if name isnt attribute default is returned, if default isn't 
+    provided AttributeError will be rised
+    Examples: getattr(car, wheels, 4), getattr(person, legs, 2)
+    """
+    class Computer:
+        def __init__(self, ram=2, storage=500):
+            self.RAM = ram
+            self.storage = storage
+
+    print 'computer, RAM, "No ram" = {}'.format(
+        getattr(Computer(), 'RAM', 'No RAM')
+    )
+    print 'computer, CPU, "No CPU" = {}'.format(
+        getattr(Computer(), 'CPU', 'No CPU')
+    )
+
+
+def example_globals():
+    """
+    globals() return dictionary with current global symbol table 
+    """
+    glob = globals()
+    print 'globals = Length {}, {:.100}...}}'.format(len(glob), glob)
+
+
+def example_hasattr():
+    """
+    hasattr(object, name) return True if name is an attribute, False if not
+    Examples: hasattr(car, 'legs'), hasattr(computer, 'GPU')
+    """
+    class Computer:
+        def __init__(self):
+            self.CPU = True
+            self.RAM = True
+
+    print 'computer, cpu = {}'.format(hasattr(Computer(), 'CPU'))
+    print 'computer, leg = {}'.format(hasattr(Computer(), 'leg'))
+
+
+def example_hash():
+    """
+    hash(object) return hash value of the object if it has one
+    Examples: hash(dict(([1, 'a'], [2, 'b']))[1])
+    """
+    my_dict = {1: "a", 2: "b", 5: "c"}
+    print '{}[1] = {} '.format(
+        my_dict, hash(my_dict[1])
+    )
+    print '{}[5] = {} '.format(
+        my_dict, hash(my_dict[5])
+    )
+
+
+def example_help():
+    """
+    help([object]) invoke the built-in help system
+    Examples: help(), help(str)
+    """
+    pass
+
+
+def example_hex():
+    """
+    hex(x) convert an integer to lowercase hex string with '0x' prefix
+    if x is other object it has to define __hex__() that returns string
+    Examples: hex(-30), hex(9821)
+    """
+    print '-30 = {}'.format(hex(-30))
+    print '1204 = {}'.format(hex(1204))
+
+
+def example_id():
+    """
+    id(object) return 'identity' of an object - unique integer for object
+    Examples: id(my_car), id(variable)
+    """
+    x, y, z = 5, 6, 'string'
+    print '5, 6, "string" = {}, {}, {}'.format(id(x), id(y), id(z))
+
+
+def example_input():
+    """
+    input([prompt]) takes input from user, doesn't catch user errors
+    preferred to use raw_input
+    """
+    x = input('Enter anything: ')
+    print x
+
+
+def example_int():
+    """
+    int(x=0)/int(x, base=10) return integer converted from x, if base is
+    given, x must be string in given base.
+    Examples: int(22.22), int('-11'), int('0723', 8), int('101101', 2)
+    """
+    print '88.11 = {}'.format(int(88.11))
+    print '"-132" = {}'.format(int('-132'))
+    print '"10110101", 2 = {}'.format(int('10110101', 2))
+    print '"A5B9F", 16 = {}'.format(int('A5B9F', 16))
+
+
+def example_isinstance():
+    """
+    isinstance(object, classinfo) return True if object is an instance of
+    classinfo argument or any subclass of that class
+    Examples: isinstance(str, basestring), isinstance(my_car, Car)
+    """
+    print 'string, bytestring = {}'.format(isinstance(str, basestring))
+    print 'int, float = {}'.format(isinstance(int, float))
+
+    class Number:
+        pass
+
+    class Complex(Number):
+        pass
+
+    print 'Complex(), Number  = {}'.format(isinstance(Complex(), Number))
