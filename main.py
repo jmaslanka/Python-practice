@@ -28,5 +28,19 @@ def func():
             print 'Function name: {}  was not found, try again'.format(name)
 
 
+def decorators():
+    @timer
+    @tracer
+    def fib(n):
+        a, b = 1, 1
+        for i in xrange(n-1):
+            a, b = b, a + b
+        return a
+
+    fib(10)
+    fib(10000)
+    fib(550000)
+
 if __name__ == '__main__':
-    func()
+    # func()
+    decorators()
