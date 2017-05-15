@@ -7,7 +7,7 @@ trying to understand how they work.
 import datetime
 
 
-def example_abs():
+def function_abs():
     """
     abs(number) function returns the absolute value of a number.
     Examples: abs(-4), abs(-99.9), abs(980)
@@ -17,7 +17,7 @@ def example_abs():
     print '521 = {}'.format(abs(521))
 
 
-def example_all():
+def function_all():
     """
     all(iterable) return True if all elements are true or if empty.
     Examples: all([1, 2, 0, 8]), all(('Hi', 'Hey', '')), all([])
@@ -28,7 +28,7 @@ def example_all():
     print '[4, "Hello", 1, ""] = {}'.format(all([4, "Hello", 1, ""]))
 
 
-def example_any():
+def function_any():
     """
     any(iterable) return True if any element is true, False if empty.
     Examples: any(('', 'Hi', '')), any([0, False, True]), any([])
@@ -38,7 +38,7 @@ def example_any():
     print '("Hi", False, 0) = {}'.format(any(("Hi", "", False, 0)))
 
 
-def example_basestring():
+def function_basestring():
     """
     basestring() cannot be called, can used to test if an object is
     an instance of 'str' or 'unicode'
@@ -48,7 +48,7 @@ def example_basestring():
     print 'u"Unicode" = {}'.format(isinstance(u"Unicode", basestring))
 
 
-def example_bin():
+def function_bin():
     """
     bin(number) convert an integer to binary string, number can be other
     object but has to have __index__ method that returns an integer
@@ -67,7 +67,7 @@ def example_bin():
     print 'Number(4) (__index__ return power) = {}'.format(bin(Number(4)))
 
 
-def example_bool():
+def function_bool():
     """
     bool(object) if object is false or omited return False, else True
     Example: bool("Hello"), bool(True), bool(0), bool({})
@@ -77,7 +77,7 @@ def example_bool():
     print '[] = {}'.format(bool({}))
 
 
-def example_bytearray():
+def function_bytearray():
     """
     bytearray(object) return a new array of bytes. If object is an 
     integer it will initialize array with null bytes and int's range.
@@ -89,7 +89,7 @@ def example_bytearray():
     print '[65, 33, 36, 112] = {}'.format(bytearray([65, 33, 36, 112]))
 
 
-def example_callable():
+def function_callable():
     """
     callable(object) return True if object can be called - by using ()
     Examples: callable(function), callable(My_Class)
@@ -109,7 +109,7 @@ def example_callable():
     )
 
 
-def example_chr():
+def function_chr():
     """
     chr(integer) return string of one character from ASCII table
     corresponding to given integer, integer must be in range [0..255]
@@ -124,7 +124,7 @@ def example_chr():
         print 'Value Error:', e.message
 
 
-def example_classmethod():
+def function_classmethod():
     """
     classmethod(function) return a class method for function
     Examples: add = classmethod(add), or @classmethod
@@ -141,7 +141,7 @@ def example_classmethod():
     print 'Class\' normal method = {}'.format(classmethod(Class.a))
 
 
-def example_cmp():
+def function_cmp():
     """
     cmp(x, y) return negative value if x < y, 
     0 if x == y and positive if x > y
@@ -152,7 +152,7 @@ def example_cmp():
     print '"aBC", "Abcde" = {}'.format(cmp("aBC", "Abcde"))
 
 
-def example_compile():
+def function_compile():
     """
     compile(source, filename, mode) compile source into code or AST object.
     If source wasn't from file pass recognizable value (eg. '<string>')
@@ -172,7 +172,7 @@ def example_compile():
     ))  # exec neither return nor print result
 
 
-def example_complex():
+def function_complex():
     """
     complex(real, imag) return complex number with value real + imag*1j
     or convert a string or number to complex number
@@ -183,7 +183,7 @@ def example_complex():
     print '-6, -3 = {}'.format(complex(-6, -3))
 
 
-def example_delattr():
+def function_delattr():
     """
     delattr(object, name) delete named attribute of object (if allowed)
     Examples: delattr(my_person, "name"), delattr(my_number, "value")
@@ -202,7 +202,7 @@ def example_delattr():
         print 'AttributeError:', e.message
 
 
-def example_dict():
+def function_dict():
     """
     dict(**kwarg), dict(mapping, **kwarg), dict(iterable, **kwarg)
     create a new dictionary
@@ -218,7 +218,7 @@ def example_dict():
     )
 
 
-def example_dir():
+def function_dir():
     """
     dir(object) or dir() return a list of valid attributes for object or
     list of names in the current local scope if no arguments
@@ -230,7 +230,7 @@ def example_dir():
     print 'dir(list) = {}'.format(dir(list)[-9:])
 
 
-def example_divmod():
+def function_divmod():
     """
     divmod(a, b) return quotient and reminder from long division
     Examples: divmod(10, 3), divmod(7.5, 1.5)
@@ -239,7 +239,7 @@ def example_divmod():
     print '15.5, 1.25 = {}'.format(divmod(15.5, 1.25))
 
 
-def example_enumerate():
+def function_enumerate():
     """
     enumerate(sequence, start=0) return an enumerate object
     Examples: enumerate(('zero', 'one')), enumerate(['five', 'six'], start=5)
@@ -250,17 +250,17 @@ def example_enumerate():
     )
 
 
-def example_eval():
+def function_eval():
     """
     eval(expression[, globals[, locals]]) return result of expression
     Example: eval('8/2'), eval('min(my_list)')
     """
     number = 4
     print '8/2 = {}'.format(eval('8/2'))
-    print '16/number (local) = {}'.format(eval('16/local_number'))
+    print '16/number (local) = {}'.format(eval('16/number'))
 
 
-def example_execfile():
+def function_execfile():
     """
     execfile(filename[, globals[, locals]]) parses file and evaluate it
     as a sequence of Python statements, locals can be mapping object
@@ -271,7 +271,7 @@ def example_execfile():
     execfile('test_file.txt')
 
 
-def example_file():
+def function_file():
     """
     file(name[, mode[, buffering]]) constructs file object, use open() 
     instead and this in isinstance function
@@ -282,7 +282,7 @@ def example_file():
         print 'isinstance(f, file) = {}'.format(isinstance(f, file))
 
 
-def example_filter():
+def function_filter():
     """
     filter(function, iterable) return list of those elements of iterable
     for which function returns true, if iterable is string or tuple 
@@ -296,7 +296,7 @@ def example_filter():
     )
 
 
-def example_float():
+def function_float():
     """
     float(number) return floating point number from number or string
     Examples: isinstance(0.1, float), float("2.44", float(-5)
@@ -306,7 +306,7 @@ def example_float():
     print '5.5 isinstance = {}'.format(isinstance(5.5, float))
 
 
-def example_format():
+def function_format():
     """
     format(value[, format_spec]) covert value to formated representation
     """
@@ -321,7 +321,7 @@ def example_format():
     print '{:%d-%m-%Y %H:%M:%S}'.format(datetime.datetime.now())
 
 
-def example_frozenset():
+def function_frozenset():
     """
     frozenset(iterable) return frozenset object with elements from iterable
     Examples: frozenset(set(1, 4, 9)), frozenset([9, 11, 22])
@@ -330,7 +330,7 @@ def example_frozenset():
     print '[1, 4, 9] -> list = {}'.format(list(frozenset([1, 4, 9])))
 
 
-def example_getattr():
+def function_getattr():
     """
     getattr(object, name[, default]) return value of given attribute,
     if name isnt attribute default is returned, if default isn't 
@@ -350,7 +350,7 @@ def example_getattr():
     )
 
 
-def example_globals():
+def function_globals():
     """
     globals() return dictionary with current global symbol table 
     """
@@ -358,7 +358,7 @@ def example_globals():
     print 'globals = Length {}, {:.100}...}}'.format(len(glob), glob)
 
 
-def example_hasattr():
+def function_hasattr():
     """
     hasattr(object, name) return True if name is an attribute, False if not
     Examples: hasattr(car, 'legs'), hasattr(computer, 'GPU')
@@ -372,7 +372,7 @@ def example_hasattr():
     print 'computer, leg = {}'.format(hasattr(Computer(), 'leg'))
 
 
-def example_hash():
+def function_hash():
     """
     hash(object) return hash value of the object if it has one
     Examples: hash(dict(([1, 'a'], [2, 'b']))[1])
@@ -386,7 +386,7 @@ def example_hash():
     )
 
 
-def example_help():
+def function_help():
     """
     help([object]) invoke the built-in help system
     Examples: help(), help(str)
@@ -394,7 +394,7 @@ def example_help():
     pass
 
 
-def example_hex():
+def function_hex():
     """
     hex(x) convert an integer to lowercase hex string with '0x' prefix
     if x is other object it has to define __hex__() that returns string
@@ -404,7 +404,7 @@ def example_hex():
     print '1204 = {}'.format(hex(1204))
 
 
-def example_id():
+def function_id():
     """
     id(object) return 'identity' of an object - unique integer for object
     Examples: id(my_car), id(variable)
@@ -413,7 +413,7 @@ def example_id():
     print '5, 6, "string" = {}, {}, {}'.format(id(x), id(y), id(z))
 
 
-def example_input():
+def function_input():
     """
     input([prompt]) takes input from user, doesn't catch user errors
     preferred to use raw_input
@@ -422,7 +422,7 @@ def example_input():
     print x
 
 
-def example_int():
+def function_int():
     """
     int(x=0)/int(x, base=10) return integer converted from x, if base is
     given, x must be string in given base.
@@ -434,7 +434,7 @@ def example_int():
     print '"A5B9F", 16 = {}'.format(int('A5B9F', 16))
 
 
-def example_isinstance():
+def function_isinstance():
     """
     isinstance(object, classinfo) return True if object is an instance of
     classinfo argument or any subclass of that class
