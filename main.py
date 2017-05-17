@@ -2,10 +2,8 @@ from decorators import *
 from functions import *
 from types import *
 
-FUNCTIONS = dict(
-    filter(lambda x: x[0].startswith('function_'), locals().items())
-)
-NAMES = sorted([name[9:] for name in FUNCTIONS.keys()])
+FUNCTIONS = {x: y for x, y in locals().items() if x.startswith('func_')}
+NAMES = sorted([name[5:] for name in FUNCTIONS.keys()])
 
 
 def func():
@@ -16,21 +14,19 @@ def func():
         )
         if name == 'functions':
             print ', '.join(NAMES)
-            continue
         elif name in NAMES:
             print '*' * 80
             print 'Function: {}\n{}'.format(
-                name, FUNCTIONS['function_%s' % name].__doc__
+                name, FUNCTIONS['func_%s' % name].__doc__
             )
-            FUNCTIONS['function_%s' % name]()
+            FUNCTIONS['func_%s' % name]()
             print '*' * 80
         else:
             print 'Function name: {}  was not found, try again'.format(name)
 
 
 def decorators():
-    @timer
-    @tracer
+    @log
     def fib(n):
         a, b = 1, 1
         for i in xrange(n-1):
@@ -42,5 +38,5 @@ def decorators():
     fib(550000)
 
 if __name__ == '__main__':
-    # func()
-    decorators()
+    func()
+    # decorators()
