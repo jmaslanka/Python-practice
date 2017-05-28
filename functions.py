@@ -41,7 +41,7 @@ def func_any():
 def func_basestring():
     """
     basestring() cannot be called, can used to test if an object is
-    an instance of 'str' or 'unicode'
+    an instance of 'str' or 'unicode'.
     Examples: isinstance(u'unicode string', basestring)
     """
     print '"I\'m string!" = {}'.format(isinstance("I'm string!", basestring))
@@ -51,7 +51,7 @@ def func_basestring():
 def func_bin():
     """
     bin(number) convert an integer to binary string, number can be other
-    object but has to have __index__ method that returns an integer
+    object but has to have __index__ method that returns an integer.
     Examples: bin(521), bin(128), bin(255)
     """
     print '333 = {}'.format(bin(333))
@@ -69,7 +69,7 @@ def func_bin():
 
 def func_bool():
     """
-    bool(object) if object is false or omited return False, else True
+    bool(object) if object is false or omited return False, else True.
     Example: bool("Hello"), bool(True), bool(0), bool({})
     """
     print '"Hello!" = {}'.format(bool('Hello!'))
@@ -91,7 +91,7 @@ def func_bytearray():
 
 def func_callable():
     """
-    callable(object) return True if object can be called - by using ()
+    callable(object) return True if object can be called - by using ().
     Examples: callable(function), callable(My_Class)
     """
     print 'abs = {}'.format(callable(abs))
@@ -112,7 +112,7 @@ def func_callable():
 def func_chr():
     """
     chr(integer) return string of one character from ASCII table
-    corresponding to given integer, integer must be in range [0..255]
+    corresponding to given integer, integer must be in range [0..255].
     Examples: chr(97), chr(250), chr(65)
     """
     print '97 = {}'.format(chr(97))
@@ -126,7 +126,7 @@ def func_chr():
 
 def func_classmethod():
     """
-    classmethod(function) return a class method for function
+    classmethod(function) return a class method for function.
     Examples: add = classmethod(add), or @classmethod
     """
 
@@ -144,7 +144,7 @@ def func_classmethod():
 def func_cmp():
     """
     cmp(x, y) return negative value if x < y,
-    0 if x == y and positive if x > y
+    0 if x == y and positive if x > y.
     Examples: cmp(-5, 6), cmp(10, 10), cmp("aBC", "Abc")
     """
     print '-10, 20 = {}'.format(cmp(-10, 20))
@@ -158,7 +158,7 @@ def func_compile():
     If source wasn't from file pass recognizable value (eg. '<string>')
     Mode specifies what kind of code must be compiles - 'exec' if source
     consists of many statements, 'eval' if it's single expression or
-    'single' if it's single interactive statement
+    'single' if it's single interactive statement.
     Examples: compile("max([6, 1, 9])", "<string>", "eval")
     """
     print '1 + 6 single = '
@@ -175,7 +175,7 @@ def func_compile():
 def func_complex():
     """
     complex(real, imag) return complex number with value real + imag*1j
-    or convert a string or number to complex number
+    or convert a string or number to complex number.
     Examples: complex(4), complex(-1, -4), complex("1+3j")
     """
     print '4 = {}'.format(complex(4))
@@ -185,7 +185,7 @@ def func_complex():
 
 def func_delattr():
     """
-    delattr(object, name) delete named attribute of object (if allowed)
+    delattr(object, name) delete named attribute of object (if allowed).
     Examples: delattr(my_person, "name"), delattr(my_number, "value")
     """
     class Car:
@@ -205,7 +205,7 @@ def func_delattr():
 def func_dict():
     """
     dict(**kwarg), dict(mapping, **kwarg), dict(iterable, **kwarg)
-    create a new dictionary
+    create a new dictionary.
     """
     print 'one = 1, two = 2, three = 3  = {}'.format(
         dict(one=1, two=2, three=3)
@@ -221,7 +221,7 @@ def func_dict():
 def func_dir():
     """
     dir(object) or dir() return a list of valid attributes for object or
-    list of names in the current local scope if no arguments
+    list of names in the current local scope if no arguments.
     Example: dir(), dir(list), dir(6), dir(Class)
     """
     local_string = "Hey!"
@@ -232,7 +232,7 @@ def func_dir():
 
 def func_divmod():
     """
-    divmod(a, b) return quotient and reminder from long division
+    divmod(a, b) return quotient and reminder from long division.
     Examples: divmod(10, 3), divmod(7.5, 1.5)
     """
     print '13, 4 = {}'.format(divmod(13, 4))
@@ -241,7 +241,7 @@ def func_divmod():
 
 def func_enumerate():
     """
-    enumerate(sequence, start=0) return an enumerate object
+    enumerate(sequence, start=0) return an enumerate object.
     Examples: enumerate(('zero', 'one')), enumerate(['five', 'six'], start=5)
     """
     print 'zero, one, two = {}'.format(list(enumerate(['zero', 'one', 'two'])))
@@ -252,7 +252,7 @@ def func_enumerate():
 
 def func_eval():
     """
-    eval(expression[, globals[, locals]]) return result of expression
+    eval(expression[, globals[, locals]]) return result of expression.
     Example: eval('8/2'), eval('min(my_list)')
     """
     number = 4
@@ -263,7 +263,7 @@ def func_eval():
 def func_execfile():
     """
     execfile(filename[, globals[, locals]]) parses file and evaluate it
-    as a sequence of Python statements, locals can be mapping object
+    as a sequence of Python statements, locals can be mapping object.
     Example: execfile('my_file.txt')
     """
     with open('test_file.txt', 'w') as f:
@@ -274,7 +274,7 @@ def func_execfile():
 def func_file():
     """
     file(name[, mode[, buffering]]) constructs file object, use open()
-    instead and this in isinstance function
+    instead and this in isinstance function.
     Examples: isinstance(my_file, file), file('test.txt', 'r')
     """
     with file('test.txt', 'w+') as f:
@@ -286,7 +286,7 @@ def func_filter():
     """
     filter(function, iterable) return list of those elements of iterable
     for which function returns true, if iterable is string or tuple
-    returns also that type, if function is None filter by 'is True'
+    returns also that type, if function is None filter by 'is True'.
     Examples: filter(is_int, [1, 'yes', '5'), filter(None, ['', 2, 0, 'Hi'])
     """
     print 'x > 5, [1, 4, 9] = {}'.format(filter(lambda x: x > 5, [1, 4, 9]))
@@ -298,7 +298,7 @@ def func_filter():
 
 def func_float():
     """
-    float(number) return floating point number from number or string
+    float(number) return floating point number from number or string.
     Examples: isinstance(0.1, float), float("2.44", float(-5)
     """
     print 'None = {}'.format(float())
@@ -308,7 +308,7 @@ def func_float():
 
 def func_format():
     """
-    format(value[, format_spec]) covert value to formated representation
+    format(value[, format_spec]) covert value to formated representation.
     Examples: 'Hi {}!'.format(name)
     """
     print 'Complex {0} = {0.real} and {0.imag}'.format(complex(1, -5))
@@ -324,7 +324,7 @@ def func_format():
 
 def func_frozenset():
     """
-    frozenset(iterable) return frozenset object with elements from iterable
+    frozenset(iterable) return frozenset object with elements from iterable.
     Examples: frozenset(set(1, 4, 9)), frozenset([9, 11, 22])
     """
     print '[1, 4, 9] = {}'.format(frozenset([1, 4, 9]))
@@ -335,7 +335,7 @@ def func_getattr():
     """
     getattr(object, name[, default]) return value of given attribute,
     if name isnt attribute default is returned, if default isn't
-    provided AttributeError will be rised
+    provided AttributeError will be raised.
     Examples: getattr(car, wheels, 4), getattr(person, legs, 2)
     """
     class Computer:
@@ -353,7 +353,7 @@ def func_getattr():
 
 def func_globals():
     """
-    globals() return dictionary with current global symbol table
+    globals() return dictionary with current global symbol table.
     """
     glob = globals()
     print 'globals = Length {}, {:.100}...}}'.format(len(glob), glob)
@@ -361,7 +361,7 @@ def func_globals():
 
 def func_hasattr():
     """
-    hasattr(object, name) return True if name is an attribute, False if not
+    hasattr(object, name) return True if name is an attribute, False if not.
     Examples: hasattr(car, 'legs'), hasattr(computer, 'GPU')
     """
     class Computer:
@@ -375,7 +375,7 @@ def func_hasattr():
 
 def func_hash():
     """
-    hash(object) return hash value of the object if it has one
+    hash(object) return hash value of the object if it has one.
     Examples: hash(dict(([1, 'a'], [2, 'b']))[1])
     """
     my_dict = {1: "a", 2: "b", 5: "c"}
@@ -389,7 +389,7 @@ def func_hash():
 
 def func_help():
     """
-    help([object]) invoke the built-in help system
+    help([object]) invoke the built-in help system.
     Examples: help(), help(str)
     """
     pass
@@ -398,7 +398,7 @@ def func_help():
 def func_hex():
     """
     hex(x) convert an integer to lowercase hex string with '0x' prefix
-    if x is other object it has to define __hex__() that returns string
+    if x is other object it has to define __hex__() that returns string.
     Examples: hex(-30), hex(9821)
     """
     print '-30 = {}'.format(hex(-30))
@@ -407,7 +407,7 @@ def func_hex():
 
 def func_id():
     """
-    id(object) return 'identity' of an object - unique integer for object
+    id(object) return 'identity' of an object - unique integer for object.
     Examples: id(my_car), id(variable)
     """
     x, y, z = 5, 6, 'string'
@@ -417,7 +417,7 @@ def func_id():
 def func_input():
     """
     input([prompt]) takes input from user, doesn't catch user errors
-    preferred to use raw_input
+    preferred to use raw_input.
     """
     x = input('Enter anything: ')
     print x
@@ -438,7 +438,7 @@ def func_int():
 def func_isinstance():
     """
     isinstance(object, classinfo) return True if object is an instance of
-    classinfo argument or any subclass of that class
+    classinfo argument or any subclass of that class.
     Examples: isinstance(str, basestring), isinstance(my_car, Car)
     """
     print 'string, bytestring = {}'.format(isinstance(str, basestring))
@@ -456,7 +456,7 @@ def func_isinstance():
 def func_issubclass():
     """
     issubclass(class, classinfo) return True is class if subclass of
-    classinfo, class is considered a subclass of itself
+    classinfo, class is considered a subclass of itself.
     Examples: issubclass(BMW, Cars), issubclass(Cat, Animal)
     """
     class Animal:
@@ -494,7 +494,7 @@ def func_iter():
 
 def func_len():
     """
-    len(object) return length (number of items) of an object
+    len(object) return length (number of items) of an object.
     Examples: len("string), len([1, 2, '', 4])
     """
     print '"Happy_string" = {}'.format(len('Happy_string.'))
@@ -505,7 +505,7 @@ def func_len():
 
 def func_list():
     """
-    list([iterable]) return list of given iterable or empty list
+    list([iterable]) return list of given iterable or empty list.
     Examples: list('abc'), list(['a', 'b', 'c'])
     """
     print '(1, 4, 9) = {}'.format(list((1, 4, 9)))
@@ -515,7 +515,7 @@ def func_list():
 
 def func_locals():
     """
-    locals() return a dictionary with the current local symbol table
+    locals() return a dictionary with the current local symbol table.
     """
     name = 'Local variable'
     print 'locals() = {}'.format(locals())
@@ -537,7 +537,7 @@ def func_map():
     """
     map(function, iterable, ...) apply function to every item of
     iterable, if many iterables are provided, function must take that many
-    arguments and is applied to items from all iterables in parallel
+    arguments and is applied to items from all iterables in parallel.
     Examples: map(int, "123"), map(min, (1, 2, 3), (3, -1, 2))
     """
     print 'int, "345" = {}'.format(map(int, '345'))
@@ -552,7 +552,7 @@ def func_map():
 def func_max():
     """
     max(iterable[, key]) or max(x, y, *args[, key]) return the largest
-    item in an iterable or largest of given arguments
+    item in an iterable or largest of given arguments.
     Examples: max([1, 0, 4), max({3: 9, 7: 2}, key=lambda x: x[1])
     """
     print '[92, 11, 33] = {}'.format(max([92, 11, 33]))
@@ -560,3 +560,141 @@ def func_max():
     print '(10, "5"), (5, "10"), key=lambda x: int(x[1]) = {}'.format(
         max((10, '5'), (5, '10'), key=lambda x: int(x[1]))
     )
+
+
+def func_min():
+    """
+    min(iterable[, key]) or min(x, y, *args[, key]) return the smallest
+    item in an iterable or smallest of given arguments.
+    Examples: min([1, 0, 4), min({3: 9, 7: 2}, key=lambda x: x[1])
+    """
+    print '[92, 11, 33] = {}'.format(min([92, 11, 33]))
+    print '(10, "5"), (5, "10") = {}'.format(min((10, '5'), (5, '10')))
+    print '(10, "5"), (5, "10"), key=lambda x: int(x[1]) = {}'.format(
+        min((10, '5'), (5, '10'), key=lambda x: int(x[1]))
+    )
+
+
+def func_next():
+    """
+    next(iterator[, default]) retrive next item from iterator, default
+    arg will be returned if iterator is exhausted, otherwise StopIteration.
+    Examples: x = (x**2 for x in xrange(5)) next(x, 'end')
+    """
+    def power(x, start=1):
+        while True:
+            start = start * x
+            yield start
+
+    x = power(2)
+    y = iter([True, True])
+
+    print 'x = power(2) = {}, {}, {}...'.format(next(x), next(x), next(x))
+    print 'y = iter([True, True]) = {}, {}, {}'.format(
+        next(y), next(y), next(y, 'StopIteration Exception')
+    )
+
+
+def func_oct():
+    """
+    oct(x) return integer converted to an octal string.
+    Examples: oct(10), oct(20), oct(8)
+    """
+    print '8 = {}'.format(oct(8))
+    print '551 = {}'.format(oct(551))
+
+
+def func_open():
+    """
+    open(name[, mode[, buffering]]) return opened file object with name arg
+    as file name, and mode string stating what mode to use r/w/a/b/r+/w+/a+
+    buffering specifies buffer size 0 - unbuffered, 1 - line, n - n bytes.
+    Examples: open('log.txt', 'w'), open('data.txt', 'r', 1024)
+    """
+    pass
+
+
+def func_ord():
+    """
+    ord(c) takes string of length one and return integer representing
+    the Unicode code point or value of byte when c is an 8-bit string.
+    Examples: ord('Z'), ord(u'\u2020')
+    """
+    print 'A and z = {} and {}'.format(ord('A'), ord('z'))
+    print "u'\u3030' = {}".format(ord(u'\u3030'))
+
+
+def func_pow():
+    """
+    pow(x, y[, z]) return x to the power y, if z is present return
+    x to the power y, modulo z.
+    Examples: pow(2, 5), pow(3, 3, 5)
+    """
+    print '4, 3 = {}'.format(pow(4, 3))
+    print '7, 2, 5 = {}'.format(pow(7, 2, 5))
+
+
+def func_print():
+    """
+    print (*obj, sep='', end='\n', file=sys.stdout)
+    prints obj to the stream file, separated by sep and followed by end.
+    to use in Python 2.x use from __future__ import print_function.
+    Examplex: print(2, 3, 4, sep='-', end=' END')
+    """
+    print 'print(2, 3, 4, sep=\'-\', end=\' END\') = 2-3-4 END'
+
+
+def func_property():
+    """
+    property([get[, set[, del[, doc]]]]) return property attr for
+    new-style classes. Arguments are functions, doc is string.
+    """
+    class Car(object):
+        def __init__(self):
+            self.wheels = 4
+            self.color = 'red'
+
+        def getwheels(self):
+            return self.wheels
+
+        def setwheels(self, value):
+            self.wheels = value
+
+        def delwheels(self):
+            del self.wheels
+
+        wheels = property(getwheels, setwheels, delwheels, 'Wheels')
+
+        # Can use @property decorator as well
+
+        @property
+        def color(self):
+            return self.color
+
+        @color.setter
+        def color(self, color):
+            self.color = color
+
+        @color.deleter
+        def color(self):
+            del self.color
+
+
+def func_range():
+    """
+    range(start, stop, step=1) return list containing integers from
+    start to stop with given step between.
+    Examples: range(1, 5), range(1, 8, 2), range(2, -8, -2)
+    """
+    print '5, 14, 2 = {}'.format(range(5, 14, 2))
+    print '3, -8, -2 = {}'.format(range(3, -8, -2))
+
+
+def func_raw_input():
+    """
+    raw_input([prompt]) reads line from input and returns it as a string,
+    if prompt is given it is written before reading line
+    Examples: raw_input('give number: '), raw_input('--> ')
+    """
+    x = raw_input('Enter anything: ')
+    print 'You entered: {}'.format(x)

@@ -38,5 +38,5 @@ def decorators():
     fib(550000)
 
 if __name__ == '__main__':
+    decorators()
     func()
-    # decorators()
