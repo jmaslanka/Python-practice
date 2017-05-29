@@ -1,4 +1,4 @@
-from decorators import *
+from decorators import log
 from functions import *
 from types import *
 

@@ -38,7 +38,7 @@ def log(func):
     """
     Adds information about called function to log file.
     """
-    name = 'output_files/logs/func_{}_log.txt'.format(func.__name__)
+    name = 'files/logs/func_{}_log.txt'.format(func.__name__)
 
     @wraps(func)
     def wrapper(*args, **kwargs):

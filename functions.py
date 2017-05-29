@@ -1,6 +1,5 @@
 """
-Almost all Python's built-in functions will be used here with examples
-trying to understand how they work.
+Almost all Python's built-in functions with examples.
 """
 
 
@@ -693,8 +692,243 @@ def func_range():
 def func_raw_input():
     """
     raw_input([prompt]) reads line from input and returns it as a string,
-    if prompt is given it is written before reading line
+    if prompt is given it is written before reading line.
     Examples: raw_input('give number: '), raw_input('--> ')
     """
     x = raw_input('Enter anything: ')
     print 'You entered: {}'.format(x)
+
+
+def func_reduce():
+    """
+    reduce(func, iterable[, initializer]) apply function of two arguments
+    cumulatively to the items of iterable from left to right and return
+    a single (last) value. Initializer is given it is places before
+    the items of the iterable.
+    Examples: reduce(pow, [2, 3, 2, 1])
+    """
+    print 'pow, [2, 2, 3, 2] = {}'.format(reduce(pow, [2, 2, 3, 2]))
+    print 'lambda x, y: x/y, [5.0, 7, 10, 1] = {}'.format(
+        reduce(lambda x, y: x/y, [5.0, 7, 10, 1])
+    )
+
+
+def func_reload():
+    """
+    reload(module) reload a previously imported module and return
+    that reloaded module object.
+    Example: reload(functions)
+    """
+    pass
+
+
+def func_repr():
+    """
+    repr(object) return a string containing printable representation of
+    an object. Classes can use __repr__().
+    Examples: repr(Class_object), repr(variable)
+    """
+    class Car:
+        def __repr__(self):
+            return 'An empty car!'
+    print 'datetime (module) = {}'.format(repr(datetime))
+    print 'Car instance = {}'.format(repr(Car()))
+
+
+def func_reversed():
+    """
+    reversed(seq) return a reverse iterator. seq must be an object which
+    has a __reversed__() method or support the sequence protocol -
+    (__len__() and __getitem__() with args starting at 0).
+    Examples: reversed([1, 2, 3, 4, 5]), reversed('straight')
+    """
+    print '[4, 5, 6, 1, 3] = {}'.format(list(reversed([4, 5, 6, 1, 3])))
+    print '\'My string!\' = {}'.format(''.join(reversed('My string!')))
+
+
+def func_round():
+    """
+    round(number[. ndigits]) return the float value rounded to ndigits
+    after decimal point (default is 0).
+    Examples: round(0.55), round(-1.45675234, 3)
+    """
+    print '44.5 = {}'.format(round(44.5))
+    print '-0.481074, 4 = {}'.format(round(-0.481074, 4))
+    print '-0.5 = {}'.format(round(-0.5))
+
+
+def func_set():
+    """
+    set([iter]) return a new set object, optionally built from iter items.
+    Examples: set([1, 5, 7]), set(), set('string')
+    """
+    print 'empty = {}'.format(set())
+    print '[5, 9 ,22] = {}'.format(set([5, 9, 22]))
+    print '\'Hello World!\' = {}'.format(set('Hello World!'))
+
+
+def func_setattr():
+    """
+    setattr(object, name, value) assign value to given object's attribute
+    provided object allows it. Same as: object.name = value.
+    Example: setattr(my_car, color, 'red')
+    """
+    pass
+
+
+def func_slice():
+    """
+    slice(start, stop[, step]) or slice(stop) return a slice object
+    representing set of indices specified by range(start, stop, step).
+    Example: slice(10, -50, -5)
+    """
+    print '10, -12, -3 = {}'.format(slice(10, -12, -3))
+
+
+def func_sorted():
+    """
+    sorted(iterable[, cmp[, key[, reverse]]]) return new sorted list
+    from iterable. cmp specifies comparison function, key specifies a
+    one arg function that modify each list element before comparison.
+    Examples: sorted([3, 1, 7], sorted('hElLO', key=str.lower, reverse=True)
+    """
+    print '"hElLO", key=str.lower = {}'.format(sorted('hElLO', key=str.lower))
+    print '[3, 0, 5] reverse=True = {}'.format(sorted([3, 0, 5], reverse=True))
+
+
+def func_staticmethod():
+    """
+    staticmethod(function) return a static method for function
+    Can use @staticmethod decorator as well.
+    Example: function = staticmethod(function)
+    """
+    pass
+
+
+def func_str():
+    """
+    str(object='') return string containing printable representation of
+    an object, the goal is to return a printable string.
+    Examples: str(my_car), str(method)
+    """
+    print 'datetime.datetime = {}'.format(str(datetime.datetime))
+    print '-55.4 = {}'.format(str(-55.4))
+
+
+def func_sum():
+    """
+    sum(iterable[, start]) return sum of all items in iterable and start.
+    Examples: sum([4, 67, -11]), sum((1, 3, 9), 10)
+    """
+    print '[0, -20, 5] = {}'.format(sum([0, -20, 5]))
+    print '(1, 6, 2), 10 = {}'.format(sum((1, 6, 2), 10))
+
+
+def func_super():
+    """
+    super(type[, object-or-type]) return proxy object that
+    delegates method calls to a parent or sibling class of type.
+    Used for accessing overridden inherited methods.
+    Example: super(Mercedes, self).method()
+    """
+    class A(object):
+        @staticmethod
+        def method():
+            return 'Parent of Car class.'
+
+    class Car(A):
+        def __init__(self):
+            self.wheels = 4
+
+        @staticmethod
+        def method():
+            return 'Car class.'
+
+    class Audi(Car):
+        def __init__(self):
+            super(Audi, self).__init__()
+            self.color = 'red'
+
+        @staticmethod
+        def method():
+            return 'Audi class.'
+
+    print 'my_audi.method() = {}'.format(Audi().method())
+    print 'super(Audi, my_audi).method() = {}'.format(
+        super(Audi, Audi()).method()
+    )
+    print 'super(Car, my_audi).method() = {}'.format(
+        super(Car, Audi()).method()
+    )
+
+
+def func_tuple():
+    """
+    tuple([iterable]) return a tuple from iterable if given, empty otherwise
+    Examples: tuple(), tuple('string'), tuple([1, 3, 5])
+    """
+    print '\'Hello World!\' = {}'.format(tuple('Hello World!'))
+    print '[0, True, 5, -9, 13] = {}'.format(tuple([0, True, 5, -9, 13]))
+
+
+def func_type():
+    """
+    type(object) or type(name, bases, dict) return type of an object or if
+    3 arguments are given return new class.
+    Examples: type('abc'), type('MyClass', (object, Parent), {'attr': None})
+    """
+    print '555 = {}'.format(type(555))
+    print '"Class", object, {{attr: 5}} = {}'.format(
+        type('Class', (object, ), {'attr': 5})
+    )
+
+
+def func_unichr():
+    """
+    unichr(i) return unicode string of one character whose code is integer i.
+    Examples: unichr(97), unichr(5123)
+    """
+    print u'97 = {}'.format(unichr(97))
+    print u'50321 = {}'.format(unichr(50321))
+
+
+def func_unicode():
+    """
+    unicode(object='') or unicode(object[, encoding[, errors]]) return
+    unicode string version of object
+    Examples: unicode('string'), unicode(string, 'utf-8', 'ignore')
+    """
+    pass
+
+
+def func_vars():
+    """
+    vars([object]) return __dict__ attribute for module/class/instance or
+    any other object with __dict__ attribute. If empty acts like locals().
+    Examples: vars(), vars(datetime), vars(MyClass)
+    """
+    local_variable = 5
+    print 'empty = {}'.format(vars())
+    print 'datetime = {:.100}...'.format(vars(datetime))
+
+
+def func_xrange():
+    """
+    xrange(stop) or xrange(start, stop[, step]) return xrange object which
+    yields values as it was a list without storing them simultaneously.
+    Examples: xrange(10), xrange(5, 45, 5)
+    """
+    print '10 = {}'.format(xrange(10))
+    print '10, -11, -5 --> list = {}'.format(list(xrange(10, -11, -5)))
+
+
+def func_zip():
+    """
+    zip([iterable, ...]) return list of tuples simultaneously taking one
+    element from each iterable. Returned list is truncated in length to
+    the length of the shortest argument sequence.
+    Example: zip([1, 2], ['a', 'b'])
+    """
+    print "[10, 20, 30], ('ten', 'twenty') = {}".format(
+        zip([10, 20, 30], ('ten', 'twenty'))
+    )
