@@ -1,6 +1,8 @@
 from decorators import log
 from functions import *
-from types import *
+import modules
+import type_methods
+
 
 FUNCTIONS = {x: y for x, y in locals().items() if x.startswith('func_')}
 NAMES = sorted([name[5:] for name in FUNCTIONS.keys()])
@@ -39,4 +41,13 @@ def decorators():
 
 if __name__ == '__main__':
     decorators()
+    print '-' * 80
+    type_methods.numerical()
+    print '-' * 80
+    type_methods.string()
+    print '-' * 80
+    modules.functools_partial()
+    print '-' * 80
+    modules.itertools_func()
+    print '-' * 80
     func()
