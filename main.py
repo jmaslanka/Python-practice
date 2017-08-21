@@ -40,14 +40,10 @@ def decorators():
     fib(550000)
 
 if __name__ == '__main__':
-    decorators()
-    print '-' * 80
-    type_methods.numerical()
-    print '-' * 80
-    type_methods.string()
-    print '-' * 80
-    modules.functools_partial()
-    print '-' * 80
-    modules.itertools_func()
-    print '-' * 80
-    func()
+    functions = [
+        decorators, type_methods.numerical, type_methods.string,
+        modules.functools_partial, modules.itertools_func, func
+    ]
+    for obj in functions:
+        obj()
+        print '-' * 80
